@@ -1,0 +1,2 @@
+scan_topic: "/scan"
+safety_drive_topic: "/vesc/low_level/ackermann_cmd_mux/input/safety"

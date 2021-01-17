@@ -1,0 +1,24 @@
+<launch>
+  <!-- TESSE simulator interface -->
+  <include file="$(find tesse_ros_bridge)/launch/tesse_bridge.launch"/>
+
+  <!-- Localization -->
+  <include file="$(find localization)/launch/localize_tesse.launch"/>
+
+  <!-- Pure Pursuit (edit load_trajectory.launch to switch trajectories) -->
+  <include file="$(find lab6)/launch/load_trajectory.launch"/>
+  <include file="$(find lab6)/launch/follow_trajectory.launch"/>
+
+  <!-- Safety Node -->
+  <!-- launch node separately here 
+  <node pkg="final_challenge" type="pure_pursuit.py" name="Trajectory_follower">
+		<param name="odom_topic" value="/pf/pose/odom"/>
+	</node> -->
+
+  <!-- Safety Stop -->
+  <node pkg="safety_stop" type="safety_stop.py" name="Safety_node" output="screen">
+	</node>  
+
+
+</launch>
+
